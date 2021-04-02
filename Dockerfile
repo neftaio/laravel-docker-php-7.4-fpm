@@ -3,15 +3,13 @@ FROM php:7.4-fpm
 RUN apt-get update 
 RUN apt-get install -y libgmp-dev libpng-dev libfreetype6-dev libjpeg62-turbo-dev unzip \
     default-mysql-client libmagickwand-dev cron zlib1g-dev libzip-dev \ 
-    curl \ 
+    curl git vim \ 
     --no-install-recommends
 
 # Install NODE
 SHELL ["/bin/bash", "--login", "-c"]
-
-RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash 
-
-RUN nvm install 13.5.0 && nvm use 13.5.0 
+RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
+RUN nvm install v14.16.0 && nvm use v14.16.0
 
 # Install exetencions
 RUN pecl install imagick \
