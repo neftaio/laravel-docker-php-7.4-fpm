@@ -1,4 +1,6 @@
-FROM php:7.4-fpm
+FROM php:8.0.2-fpm
+
+#FROM php:7.4-fpm
 
 RUN apt-get update 
 RUN apt-get install -y libgmp-dev libpng-dev libfreetype6-dev libjpeg62-turbo-dev unzip \
